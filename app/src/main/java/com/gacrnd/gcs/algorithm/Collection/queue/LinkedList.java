@@ -15,7 +15,7 @@
  *  limitations under the License.
  */
 
-package com.gacrnd.gcs.algorithm.queue;
+package com.gacrnd.gcs.algorithm.Collection.queue;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;

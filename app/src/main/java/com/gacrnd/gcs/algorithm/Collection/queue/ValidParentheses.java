@@ -1,4 +1,4 @@
-package com.gacrnd.gcs.algorithm.queue;
+package com.gacrnd.gcs.algorithm.Collection.queue;
 
 import java.util.HashMap;
 

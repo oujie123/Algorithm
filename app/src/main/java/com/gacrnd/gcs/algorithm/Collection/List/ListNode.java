@@ -1,4 +1,4 @@
-package com.gacrnd.gcs.algorithm.List;
+package com.gacrnd.gcs.algorithm.Collection.List;
 
 /**
  * @author Jack_Ou  created on 2020/11/24.

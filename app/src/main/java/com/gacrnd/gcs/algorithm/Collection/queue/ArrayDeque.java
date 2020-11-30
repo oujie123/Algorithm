@@ -3,7 +3,7 @@
  * as explained at http://creativecommons.org/publicdomain/zero/1.0/.
  */
 
-package com.gacrnd.gcs.algorithm.queue;
+package com.gacrnd.gcs.algorithm.Collection.queue;
 
 // BEGIN android-note
 // removed link to collections framework docs

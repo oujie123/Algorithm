@@ -1,4 +1,4 @@
-package com.gacrnd.gcs.algorithm.List;
+package com.gacrnd.gcs.algorithm.Collection.List;
 
 public class LruLinkedList<T> extends LinkedList<T> {
 	
