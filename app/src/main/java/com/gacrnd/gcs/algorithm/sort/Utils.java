@@ -21,6 +21,13 @@ public class Utils {
         System.out.println();
     }
 
+    public static void printArrayPackage(Integer[] arr) {
+        for (Integer i : arr) {
+            System.out.print(i.intValue() + "->");
+        }
+        System.out.println();
+    }
+
     public static void swap(int[] arr,int iIndex,int jIndex){
         int temp = arr[iIndex];
         arr[iIndex] = arr[jIndex];

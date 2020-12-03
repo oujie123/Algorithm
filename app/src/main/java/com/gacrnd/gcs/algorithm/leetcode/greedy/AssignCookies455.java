@@ -1,4 +1,4 @@
-package com.gacrnd.gcs.algorithm.leetcode;
+package com.gacrnd.gcs.algorithm.leetcode.greedy;
 
 import com.gacrnd.gcs.algorithm.sort.QuickSort;
 import com.gacrnd.gcs.algorithm.sort.Utils;

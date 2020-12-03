@@ -1,4 +1,4 @@
-package com.gacrnd.gcs.algorithm.leetcode;
+package com.gacrnd.gcs.algorithm.leetcode.greedy;
 
 import java.sql.SQLOutput;
 import java.util.SortedMap;
