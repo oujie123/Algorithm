@@ -1,11 +1,8 @@
 package com.gacrnd.gcs.algorithm.search;
 
-import android.view.ViewDebug;
-
 import com.gacrnd.gcs.algorithm.sort.Utils;
 
 import java.util.Arrays;
-import java.util.Comparator;
 
 /**
  * 二分查找(折半查找)
