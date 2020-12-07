@@ -6,6 +6,9 @@ import com.gacrnd.gcs.algorithm.designpatterns.entity.fruit.Apple;
 import com.gacrnd.gcs.algorithm.designpatterns.entity.fruit.Banana;
 import com.gacrnd.gcs.algorithm.designpatterns.entity.fruit.Orange;
 
+/**
+ * 多态中不能识别真实对象的时候，就需要用到访问者模式，来双重分派任务
+ */
 public class Visit {
 
 	//苹果计价
