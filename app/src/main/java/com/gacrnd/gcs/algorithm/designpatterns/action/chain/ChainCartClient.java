@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 当一个请求需要很多方对他进行处理的时候，可以使用责任链模式
+ *
  * 模板方法模式
  * 订单费用结算过程
  */
