@@ -16,6 +16,7 @@ public class QuickSort {
             int j = end;
             int pivot = arr[start];
             int temp;
+            //此循环是把所有大于pivot的数放到右边，小于的放左边
             while (i != j) {
                 while (i<j && pivot <= arr[j]){
                     j--;

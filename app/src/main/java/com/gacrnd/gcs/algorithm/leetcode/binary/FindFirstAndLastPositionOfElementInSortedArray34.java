@@ -18,6 +18,13 @@ public class FindFirstAndLastPositionOfElementInSortedArray34 {
         return new int[]{-1, -1};
     }
 
+    /**
+     *
+     * @param nums
+     * @param target
+     * @param lower 为false的话，是查找目标大的第一个数的位置，如果为true，就一直缩短右边界，使得找到最左的target值
+     * @return
+     */
     public static int binarySearch(int[] nums, int target, boolean lower) {
         int left = 0, right = nums.length - 1, ans = nums.length;
         while (left <= right) {
@@ -30,5 +37,15 @@ public class FindFirstAndLastPositionOfElementInSortedArray34 {
             }
         }
         return ans;
+    }
+
+    /**
+     * [5,7,7,8,8,10]
+     * @param args
+     */
+    public static void main(String[] args) {
+        int[] array = new int[] {5,7,7,8,8,10};
+        //3
+        System.out.println(binarySearch(array,7,true));
     }
 }

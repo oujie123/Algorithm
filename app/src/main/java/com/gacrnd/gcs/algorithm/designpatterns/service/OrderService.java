@@ -5,5 +5,4 @@ package com.gacrnd.gcs.algorithm.designpatterns.service;
  */
 public interface OrderService {
     int saveOrder();
-
 }
