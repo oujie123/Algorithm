@@ -1,7 +1,5 @@
 package com.gacrnd.gcs.algorithm.leetcode.binary;
 
-import android.app.backup.RestoreObserver;
-
 /**
  * @author Jack_Ou  created on 2021/1/6.
  */
@@ -29,8 +27,10 @@ public class MedianofTwoSortedArrays4 {
         int[] nums1 = new int[] {1,2,2,3};
         int[] nums2 = new int[] {2,3,4};
         int[] result = merge(nums1,nums2);
-        for (int i = 0; i < result.length; i++) {
-            System.out.print(result[i]);
-        }
+//        for (int i = 0; i < result.length; i++) {
+//            System.out.print(result[i]);
+//        }
+
+        System.out.println(MedianofTwoSortedArrays4.class.getPackage().getName());
     }
 }

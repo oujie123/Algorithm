@@ -38,6 +38,17 @@ public class SearchInRotatedSortedArrayII81 {
 
     public static void main(String[] args) {
         int[] nums = new int[] {2,5,6,0,0,1,2};
-        System.out.println(search(nums,0));
+        //System.out.println(search(nums,0));
+        StringBuilder builder = new StringBuilder();
+        builder.append("aaa");
+        builder.append("bbb");
+        System.out.println(builder.toString());
+
+        builder = new StringBuilder();
+        builder.append("ccc");
+        builder.append("ddd");
+        System.out.println(builder.toString());
+
+        System.out.println((char)1 << 12);
     }
 }
