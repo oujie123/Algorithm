@@ -71,7 +71,6 @@ class Maze {
 
     private static int row;
     private static int col;
-    private static int[][] maze = new int[row][col];
 
     private static class Pair {
         int i;
@@ -93,22 +92,37 @@ class Maze {
         while (sc.hasNextInt()) {
             row = sc.nextInt();
             col = sc.nextInt();
+            int[][] maze = new int[row][col];
             for (int i = 0; i < row; i++) {
                 for (int j = 0; j < col; j++) {
-                    maze[row][col] = sc.nextInt();
+                    maze[i][j] = sc.nextInt();
                 }
             }
             Stack<Pair> paths = new Stack<Pair>();
-            dfs(maze, row, col, paths);
+            dfs(maze, 0, 0, paths);
             for (Pair p : paths) {
                 System.out.println(p);
             }
         }
     }
 
-    private static boolean dfs(int[][] maze, int row, int col, Stack<Pair> paths) {
-        if (maze[row][col] != 0) return false;
-        paths.push(new Pair(row, col));
-        if (maze)
+    private static boolean dfs(int[][] maze, int i, int j, Stack<Pair> paths) {
+        if (maze[i][j] != 0) return false;
+        paths.push(new Pair(i, j));
+        if (i == row - 1 && j == col - 1) return true;
+
+        // 向右
+        if (i + 1 < row && dfs(maze,i+1,j,paths)) {
+            return true;
+        }
+
+        // 向下
+        if (j + 1 < col && dfs(maze,i,j+1,paths)) {
+            return true;
+        }
+
+        // 其他情况，取出该路径
+        paths.pop();
+        return false;
     }
 }
