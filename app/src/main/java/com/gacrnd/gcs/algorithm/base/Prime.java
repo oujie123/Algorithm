@@ -1,7 +1,9 @@
 package com.gacrnd.gcs.algorithm.base;
 
 import java.sql.SQLOutput;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 
@@ -29,6 +31,27 @@ public class Prime {
         //System.out.println(gcd(9,100));
 
         System.out.println(mcm(6, 14));
+
+        System.out.println(getPrime2(10));
+    }
+
+    public static List<Integer> getPrime2(int n) {
+        List<Integer> list = new ArrayList<>();
+        boolean flag;
+        for (int i = 2; i < n; i++) {
+            flag = false;
+            for (int j = 2; j <= Math.sqrt(i); j++) {
+                if (i % j == 0) {
+                    flag = true; //如果有一个数除得断则这个数就不是质数
+                    break;
+                }
+            }
+            //所有的都除不断后就是质数 所以输出
+            if (!flag) {
+                list.add(i);
+            }
+        }
+        return list;
     }
 
     public static boolean judgePrime(int n) {
@@ -93,7 +116,7 @@ public class Prime {
 
     /**
      * 欧几里得算法
-     *
+     * <p>
      * 求最大公约数：greatest common divisor
      */
     public static int gcd(int a, int b) {
@@ -115,10 +138,10 @@ public class Prime {
     }
 
     /**
-     *  水壶问题，本质是最大公约数问题（裴蜀定理）
-     *
-     *  如果需要组成的水容量是最大公约数的倍数，肯定可以完成
-     *
+     * 水壶问题，本质是最大公约数问题（裴蜀定理）
+     * <p>
+     * 如果需要组成的水容量是最大公约数的倍数，肯定可以完成
+     * <p>
      * 裴蜀定理：找到一对整数a,b,使得 ax + by = z，且 z <= x + y
      *
      * @param x 水壶1容量
@@ -126,10 +149,10 @@ public class Prime {
      * @param z 希望得到的容量
      * @return 是否能得到
      */
-    public static boolean KettleProblem (int x,int y,int z) {
+    public static boolean KettleProblem(int x, int y, int z) {
         // 求得最大公约数
-        int g = gcd (x ,y);
-        if (z ==0 || (g != 0 && z %g == 0)) {
+        int g = gcd(x, y);
+        if (z == 0 || (g != 0 && z % g == 0)) {
             if (z > x + y) {
                 return false;
             } else {

@@ -1,5 +1,7 @@
 package com.gacrnd.gcs.algorithm.huawei;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -72,18 +74,20 @@ class Maze {
     private static int row;
     private static int col;
 
-    private static class Pair {
-        int i;
-        int j;
+    private static class Point {
+        int x;
+        int y;
+        Point father; // 保存上一个节点
 
-        public Pair(int i, int j) {
-            this.i = i;
-            this.j = j;
+        public Point(int i, int j, Point f) {
+            this.x = i;
+            this.y = j;
+            this.father = f;
         }
 
         @Override
         public String toString() {
-            return "(" + i + "," + j + ")";
+            return "(" + x + "," + y + ")";
         }
     }
 
@@ -98,31 +102,51 @@ class Maze {
                     maze[i][j] = sc.nextInt();
                 }
             }
-            Stack<Pair> paths = new Stack<Pair>();
-            dfs(maze, 0, 0, paths);
-            for (Pair p : paths) {
-                System.out.println(p);
+            // 广度优先遍历路径
+            Queue<Point> q = new LinkedList<Point>();
+            q.offer(new Point(0, 0, null));
+            maze[0][0] = 1; // 走过的路径标1，防止无限循环
+            Point cur = null; // 记录当前所在的位置
+            while(true) {
+                cur = q.poll();
+                int x = cur.x;
+                int y = cur.y;
+                // 如果遍历到最后一个节点就退出
+                if (x == row - 1 && y == col -1) {
+                    break;
+                } else {
+                    // 下
+                    if (x + 1 < row && maze[x + 1][y] == 0) {
+                        maze[x + 1][y] = 1;
+                        q.offer(new Point(x + 1, y, cur));
+                    }
+                    // 右
+                    if (y + 1 < col && maze[x][y+1] == 0) {
+                        maze[x][y+1] = 1;
+                        q.offer(new Point(x, y + 1, cur));
+                    }
+                    // 上
+                    if (x - 1 >= 0 && maze[x - 1][y] == 0) {
+                        maze[x - 1][y] = 1;
+                        q.offer(new Point(x - 1, y, cur));
+                    }
+                    // 左
+                    if (y - 1 >= 0 && maze[x][y - 1] == 0) {
+                        maze[x][y - 1] = 1;
+                        q.offer(new Point(x, y - 1, cur));
+                    }
+                }
+            }
+            // 找到路径了，father就是路径，但是此时的cur是在出口位置，路径输出需要回溯
+            Stack<Point> stack = new Stack<Point>();
+            while(cur != null) {
+                stack.push(cur);
+                cur = cur.father;
+            }
+            while(!stack.isEmpty()) {
+                Point tmp = stack.pop();
+                System.out.println(tmp.toString());
             }
         }
-    }
-
-    private static boolean dfs(int[][] maze, int i, int j, Stack<Pair> paths) {
-        if (maze[i][j] != 0) return false;
-        paths.push(new Pair(i, j));
-        if (i == row - 1 && j == col - 1) return true;
-
-        // 向右
-        if (i + 1 < row && dfs(maze,i+1,j,paths)) {
-            return true;
-        }
-
-        // 向下
-        if (j + 1 < col && dfs(maze,i,j+1,paths)) {
-            return true;
-        }
-
-        // 其他情况，取出该路径
-        paths.pop();
-        return false;
     }
 }
