@@ -15,20 +15,23 @@ package com.gacrnd.gcs.algorithm.offerorientedalgorithms.chaptertwo;
 public class NumSubArrayProductLessThanK {
 
     public static void main(String[] args) {
-        System.out.println(numSubArrayProductLessThanK(new int[]{10,5,2,6}, 100));
+        System.out.println(numSubarrayProductLessThanK(new int[]{10,5,2,6}, 100));
     }
 
-    public static int numSubArrayProductLessThanK(int[] nums, int k) {
+    public static int numSubarrayProductLessThanK(int[] nums, int k) {
         long product = 1;
         int left = 0;
         int count = 0;
-        for (int right = 0; right < nums.length; right++) {
+        for (int right = 0; right < nums.length; ++right) {
             product *= nums[right];
             while (left <= right && product >= k) {
-                product /= nums[left++];  // 此处加了1在判断，所以下面count针对单个子数组的情况也是加的1
+                product /= nums[left];
+                left++;
             }
-            count += right >= right ? right - left + 1 : 0;
+
+            count += right >= left ? right - left + 1 : 0;
         }
+
         return count;
     }
 }

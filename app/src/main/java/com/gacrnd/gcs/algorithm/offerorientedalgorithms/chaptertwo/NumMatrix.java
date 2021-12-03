@@ -34,7 +34,7 @@ public class NumMatrix {
             int sumRow = 0;
             for (int j = 0; j < matrix[0].length; j++) {
                 sumRow += matrix[i][j];
-                sums[i + 1][j + 1] = sums[i][j + 1] + sumRow;
+                sums[i + 1][j + 1] = sums[i][j + 1] + sumRow;  // 上一行的和 加上本行大小
             }
         }
     }
