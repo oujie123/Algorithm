@@ -1,7 +1,8 @@
 package com.gacrnd.gcs.algorithm.offerorientedalgorithms.chapterone;
 
 /**
- * 前n个数字二进制形式中1的个数
+ * 输入一个非负数n，请计算0到n之间每个数字的二进制表示中1的个数，并输出一个数组。例如，输入n为4，
+ * 由于0、1、2、3、4的二进制表示的1的个数分别为0、1、1、2、1，因此输出数组[0, 1, 1, 2, 1]。
  *
  * @Author: Jack Ou
  * @CreateDate: 2021/9/7 23:35

@@ -14,7 +14,7 @@ package com.gacrnd.gcs.algorithm.offerorientedalgorithms.chaptertwo;
 public class MinSubArrayLen {
 
     public static void main(String[] args) {
-        System.out.println(minSubArrayLen(7,new int[] {5, 1, 4,3}));
+        System.out.println(minSubArrayLen(7, new int[]{5, 1, 4, 3}));
     }
 
     public static int minSubArrayLen(int target, int[] nums) {
