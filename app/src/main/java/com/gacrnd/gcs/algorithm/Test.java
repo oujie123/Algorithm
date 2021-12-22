@@ -5,6 +5,7 @@ import com.gacrnd.gcs.algorithm.sort.Utils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -19,9 +20,19 @@ import java.util.Queue;
 public class Test {
 
     public static void main(String[] args) {
-        int[] arr = new int[]{5, 8, 6, 3, 9, 2, 1, 7, 4};
+        Integer[] arr = new Integer[]{5, 8, 6, 3, 9, 2, 1, 7, 4};
         //sort(arr, 0, arr.length - 1);
-        Utils.printArray(sort(arr));
+        //Utils.printArray(sort(arr));
+        Arrays.sort(arr, new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o2.intValue() - o1.intValue();
+            }
+        });
+        for (Integer i : arr) {
+            System.out.print(i + " ");
+        }
+        //Utils.printArray(arr);
     }
 
     private static void sort(int[] arr, int start, int end) {
@@ -56,9 +67,9 @@ public class Test {
     private static int[] sort(int[] arr) {
         if (arr.length < 2) return arr;
         int index = arr.length / 2;
-        int[] left = Arrays.copyOfRange(arr, 0 , index);
+        int[] left = Arrays.copyOfRange(arr, 0, index);
         int[] right = Arrays.copyOfRange(arr, index, arr.length);
-        return merge(sort(left),sort(right));
+        return merge(sort(left), sort(right));
     }
 
     private static int[] merge(int[] left, int[] right) {
